@@ -1,0 +1,57 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingTwo">
+    <button
+            class="accordion-button text-dark bg-light"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#panelsStayOpen-collapseTwo"
+            aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseTwo"
+            >
+      agregar Articulo
+    </button>
+  </h2>
+  <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
+    <div class="accordion-body">
+
+<div class="p-4">
+  <h5 class="card-title mb-3">Registro de cliente</h5>
+  <form [formGroup]="sentArticulo" (ngSubmit)="onSubmit(sentArticulo.value)">
+  <div class="row">
+    <div class="col-6 mb-3">
+      <p class="mb-0">Codigo</p>
+      <div class="form-outline">
+        <input type="text" formControlName="codigo" required="" placeholder="Txxx-xxxx" />
+      </div>
+    </div>
+
+    <div class="col-6">
+      <p class="mb-0">Descripcion</p>
+      <div class="form-outline">
+        <input type="text" formControlName="descripcion" required="" placeholder="Descripcion/nombre" />
+      </div>
+    </div>
+
+    <div class="col-6 mb-3">
+      <p class="mb-0">Precio $</p>
+      <div class="form-outline">
+        <input type="number" formControlName="precio" required="" placeholder="$ 00.00"  />
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <p class="mb-0">Imagen</p>
+    <div class="form-outline">
+      <input type="file" required="" (change)="onChange($event)" />
+    </div>
+  </div>
+
+  <div class="col-6 mb-3">
+    <input type="submit" value="Enviar" class="btn btn-white w-100 border border-secondary">
+    </div>
+</form>
+</div>
+    </div>
+  </div>
+</div>
+

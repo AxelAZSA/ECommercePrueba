@@ -1,0 +1,54 @@
+
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingThree">
+    <button
+            class="accordion-button text-dark bg-light"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#panelsStayOpen-collapseThree"
+            aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseThree"
+            >
+      Declarar stock
+    </button>
+  </h2>
+  <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree">
+    <div class="accordion-body">
+      <form [formGroup]="sentStock" (ngSubmit)="onSubmit(sentStock.value)">
+        <div class="range">
+          <p class="mb-0">
+            Cantidad de existencias
+          </p>
+          <input type="range" formControlName="stock" class="form-range" id="customRange1" />
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <p class="mb-0">
+              Articulo
+            </p>
+            <div class="form-outline">
+              <div class="ms-auto">
+                <select formControlName="idArticulo" class="form-select d-inline-block w-auto border pt-1" *ngFor="let articulo in articulos">
+                  <option value="articulo.idArticulo">{{articulo.codigo}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <p class="mb-0">
+              Tienda
+            </p>
+            <div class="form-outline">
+              <select formControlName="idTienda" class="form-select d-inline-block w-auto border pt-1" *ngFor="let tienda in tiendas">
+                <option value="tienda.id">{{tienda.sucursal}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-white w-100 border border-secondary">
+        </form>
+    </div>
+  </div>
+</div>
+
+

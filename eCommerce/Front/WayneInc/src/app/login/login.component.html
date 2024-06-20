@@ -1,0 +1,59 @@
+
+  <section class="vh-100">
+      <div class="container-fluid h-custom">
+      <div class="mx-auto col-10 col-md-4 col-lg-4">
+        <form [formGroup]="sentLogin" (ngSubmit)="onSubmit(sentLogin.value)">
+    <div class="text-center mb-3">
+      <p>Iniciar sesion</p>
+
+
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input type="email" required=""  formControlName="correo" class="form-control form-control-lg" />
+      <label class="form-label" for="email">Correo</label>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input type="password" required=""  formControlName="password"  class="form-control form-control-lg" />
+      <label class="form-label" for="password">Clave</label>
+    </div>
+
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+        <!-- Checkbox -->
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="recuedame" checked />
+          <label class="form-check-label" for="recuedame"> Recuerdame </label>
+        </div>
+      </div>
+
+      <div class="col">
+        <!-- Simple link -->
+        <a href="#!">¿Olvidaste tu contraseña?</a>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+        <!-- Checkbox -->
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox"  formControlName="adminBool" value="" id="adminBool"/>
+          <label class="form-check-label" for="adminBool"> Soy Administrador</label>
+        </div>
+      </div>
+
+    </div>
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Iniciar sesion</button>
+
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>¿No tienes cuenta? <a routerLink="../cliente/0">Registrate</a></p>
+      </div>
+          </div>
+  </form>
+  </div>
+  </div>
+  </section>

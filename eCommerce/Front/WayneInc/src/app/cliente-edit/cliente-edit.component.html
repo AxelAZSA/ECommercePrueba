@@ -1,0 +1,97 @@
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 mb-4">
+        <div class="card mb-4 border shadow-0">
+          <div class="p-4 d-flex justify-content-between">
+            <div class="">
+              <h5>¿Tienes una cuenta?</h5>
+            </div>
+            <div class="d-flex align-items-center justify-content-center flex-column flex-md-row">
+              <a routerLink="login" class="btn btn-primary shadow-0 text-nowrap w-100">Inicia sesion</a>
+            </div>
+          </div>
+        </div>
+        <!-- Checkout -->
+        <div class="card shadow-0 border">
+          <div class="p-4">
+            <h5 class="card-title mb-3">Registro de cliente</h5>
+            <form [formGroup]="sentCliente" (ngSubmit)="onSubmit(sentCliente.value)">
+            <div class="row">
+              <div class="col-6 mb-3">
+                <p class="mb-0">Nombre</p>
+                <div class="form-outline">
+                  <input type="text" id="typeText" required="" formControlName="nombre" placeholder="Type here" class="form-control" />
+                </div>
+              </div>
+
+              <div class="col-6">
+                <p class="mb-0">Apellido</p>
+                <div class="form-outline">
+                  <input type="text" id="typeText" required="" formControlName="apellido" placeholder="Type here" class="form-control" />
+                </div>
+              </div>
+
+              <div class="col-6 mb-3">
+                <p class="mb-0">Correo</p>
+                <div class="form-outline">
+                  <input type="email" id="typeEmail" required="" formControlName="correo" placeholder="example@gmail.com" class="form-control" />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <p class="mb-0">Contraseña</p>
+              <div class="form-outline">
+                <input type="password" id="typeText" required="" formControlName="password" placeholder="Type here" class="form-control" />
+              </div>
+            </div>
+
+            <div class="col-6 mb-3">
+              <p class="mb-0">Confirmar contraseña</p>
+              <div class="form-outline">
+                <input type="password" id="typeText" required="" formControlName="confirmPassword" placeholder="Type here" class="form-control" />
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <h5 class="card-title mb-3">Direccion</h5>
+            <div class="row">
+              <div class="col-sm-8 mb-3">
+                <p class="mb-0">Calle</p>
+                <div class="form-outline">
+                  <input type="text" id="typeText" required="" formControlName="calle" placeholder="Av example" class="form-control" />
+                </div>
+              </div>
+              <div class="col-sm-4 mb-3">
+                <p class="mb-0">Numero de casa</p>
+                <div class="form-outline">
+                  <input type="number" id="typeText" required="" formControlName="numeroCasa" placeholder="0000" class="form-control" />
+                </div>
+              </div>
+              <div class="col-sm-4 mb-3">
+                <p class="mb-0">Ciudad</p>
+                <div class="form-outline">
+                  <input type="text" id="typeText" required="" formControlName="ciudad" placeholder="Ciudad Gotica" class="form-control" />
+                </div>
+              </div>
+
+              <div class="col-sm-4 col-6 mb-3">
+                <p class="mb-0">Codigo postal</p>
+                <div class="form-outline">
+                  <input type="text" id="typeText" required="" formControlName="codigoPostal" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="float-end">
+              <input class="btn btn-primary btn-circled" type="submit">
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        <!-- Checkout -->

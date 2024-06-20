@@ -1,0 +1,50 @@
+<section class="bg-light py-5">
+<div class="container">
+<div class="card shadow-0 border">
+  <div class="p-4">
+    <h5 class="card-title mb-3">Cliente</h5>
+    <input type="button" onclick="logout()">
+    <div class="row">
+      <div class="col-6 mb-3">
+        <p class="mb-0">Nombre</p>
+        <div class="form-outline">
+          <label class="form-label" style="margin-left: 0px;">{{item.nombre}}</label>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <p class="mb-0">Apellido</p>
+        <div class="form-outline">
+          <label class="form-label" style="margin-left: 0px;">{{item.apellido}}</label>
+        </div>
+      </div>
+
+      <div class="col-6 mb-3">
+        <p class="mb-0">Correo</p>
+        <div class="form-outline">
+         <label class="form-label" style="margin-left: 0px;">{{sesion.correo}}</label>
+        </div>
+      </div>
+
+      <div class="col-6 mb-3">
+        <p class="mb-0">Direccion</p>
+        <div class="form-outline">
+          <label class="form-label" style="margin-left: 0px;">{{item.direccion}}</label>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+        <hr />
+        <h6 class="text-dark my-4">Compras</h6>
+
+        <div class="d-flex align-items-center mb-4" *ngFor="let compra in compras">
+          <div class="me-3 position-relative">
+            <img src="data:image/png;base64,{{compra.imagen}}" style="height: 96px; width: 96x;" class="img-sm rounded border" />
+          </div>
+          <div class="">
+            {{compra.articuloDescripcion}}
+          </div>
+        </div>
+      </div>
+  </section>

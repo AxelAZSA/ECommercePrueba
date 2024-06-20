@@ -1,0 +1,169 @@
+
+<!-- sidebar + content -->
+<section class="">
+<div class="container">
+  <div class="row">
+    <!-- sidebar -->
+    <div class="col-lg-3">
+      <input type="button" onclick="logout()">
+      <!-- Toggle button -->
+      <button
+              class="btn btn-outline-secondary mb-3 w-100 d-lg-none"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              >
+        <span>Acciones</span>
+      </button>
+      <!-- Collapsible wrapper -->
+      <div class="collapse card d-lg-block mb-5" id="navbarSupportedContent">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+                    class="accordion-button text-dark bg-light"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#panelsStayOpen-collapseTwo"
+                    aria-expanded="true"
+                    aria-controls="panelsStayOpen-collapseTwo"
+                    >
+              agregar Articulo
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
+            <div class="accordion-body">
+
+        <div class="p-4">
+          <h5 class="card-title mb-3">Registro de cliente</h5>
+          <form [formGroup]="sentArticulo" (ngSubmit)="onSubmitInv(sentArticulo.value)">
+          <div class="row">
+            <div class="col-6 mb-3">
+              <p class="mb-0">Codigo</p>
+              <div class="form-outline">
+                <input type="text" formControlName="codigo" required="" placeholder="Txxx-xxxx" />
+              </div>
+            </div>
+
+            <div class="col-6">
+              <p class="mb-0">Descripcion</p>
+              <div class="form-outline">
+                <input type="text" formControlName="descripcion" required="" placeholder="Descripcion/nombre" />
+              </div>
+            </div>
+
+            <div class="col-6 mb-3">
+              <p class="mb-0">Precio $</p>
+              <div class="form-outline">
+                <input type="number" formControlName="precio" required="" placeholder="$ 00.00"  />
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <p class="mb-0">Imagen</p>
+            <div class="form-outline">
+              <input type="file" accept="image/png, image/webp, image/jpeg" required="" (change)="onChange($event)" />
+            </div>
+          </div>
+
+          <div class="col-6 mb-3">
+            <input type="submit" value="Enviar" class="btn btn-white w-100 border border-secondary">
+            </div>
+        </form>
+        </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button
+                    class="accordion-button text-dark bg-light"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#panelsStayOpen-collapseThree"
+                    aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseThree"
+                    >
+              Declarar stock
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree">
+            <div class="accordion-body">
+              <form [formGroup]="sentStock" (ngSubmit)="onSubmitStk(sentStock.value)">
+                <div class="range">
+                  <p class="mb-0">
+                    Cantidad de existencias
+                  </p>
+                  <input type="number" formControlName="stock" class="form-range" id="customRange1" />
+                </div>
+                <div class="row mb-3">
+                  <div class="col-6">
+                    <p class="mb-0">
+                      Articulo
+                    </p>
+                    <div class="form-outline">
+                      <div class="ms-auto">
+                        <select formControlName="idArticulo" class="form-select d-inline-block w-auto border pt-1">
+                          <option *ngFor="let articulo of articulos" value="tienda.id">{{articulo.codigo}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <p class="mb-0">
+                      Tienda
+                    </p>
+                    <div class="form-outline">
+                      <div class="ms-auto">
+                        <select formControlName="idTienda" class="form-select d-inline-block w-auto border pt-1" >
+                          <option *ngFor="let tienda of tiendas" value="tienda.id">{{tienda.sucursal}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <input type="submit" value="Enviar" class="btn btn-white w-100 border border-secondary">
+                </form>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- sidebar -->
+    <!-- content -->
+    <div class="col-lg-9">
+      <header class="d-sm-flex align-items-center border-bottom mb-4 pb-3">
+        <strong class="d-block py-2">{{stocks.length}} existencias encontradas</strong>
+      </header>
+
+      <div class="row justify-content-center mb-3" >
+        <div class="col-md-12" *ngFor="let stock of stocks">
+          <div class="card shadow-0 border rounded-3">
+            <div class="card-body">
+              <div class="row g-0">
+                <div class="col-xl-3 col-md-4 d-flex justify-content-center">
+                  <div class="bg-image hover-zoom ripple rounded ripple-surface me-md-3 mb-3 mb-md-0">
+                    <img src="data:image/png;base64,{{stock.imagen}}" class="w-100" />
+                      <div class="hover-overlay">
+                        <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-md-5 col-sm-7">
+                  <h5>{{stock.articuloDescripcion}}</h5>
+                  <div class="d-flex flex-row">
+                    <span class="text-muted">registrado: {{stock.fecha}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </div>
+</div>
+</section>

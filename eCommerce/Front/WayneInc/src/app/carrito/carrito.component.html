@@ -1,0 +1,71 @@
+
+<!-- cart + summary -->
+<section class="bg-light my-5">
+  <div class="container">
+    <div class="row">
+      <!-- cart -->
+      <div class="col-lg-9"  >
+        <div class="card border shadow-0">
+          <div class="m-4">
+            <h4 class="card-title mb-4">Your shopping cart</h4>
+            <div class="row gy-3 mb-4" *ngFor="let item of Carrito.items">
+              <div class="col-lg-5">
+                <div class="me-lg-5">
+                  <div class="d-flex">
+                    <img src="data:image/png;base64,{{item.imagen}}" class="border rounded me-3" style="width: 96px; height: 96px;" />
+                    <div class="">
+                      <p>{{item.descripcion}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                <div class="">
+                  <p style="width: 100px;">unidades: {{item.cantidad}}</p><br>
+                </div>
+                <div class="">
+                  <h6>{{item.subtotal}}</h6> <br />
+                  <small class="text-muted text-nowrap"> ${{item.precioU}} / por unidad </small>
+                </div>
+              </div>
+              <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
+                <div class="float-md-end">
+                  <input type="button" value="Remover" class="btn btn-light border text-danger icon-hover-danger"  (click)="removeArticulo(item.idCarritoItem)">
+                  <input type="button" class="btn btn-primary shadow-0 me-1" value="Agregar" (click)="addArticulo(item.idArticulo)">
+                </div>
+              </div>
+            </div>
+
+                </div>
+                </div>
+          <div class="border-top pt-4 mx-4 mb-4">
+            <p><i class="fas fa-truck text-muted fa-lg"></i>Envio Gratis</p>
+            <p class="text-muted">
+              Envio gratis dentro de toda Ciudad Gotica, Metropolis, Ciudad Central y CIudad Palmera
+            </p>
+          </div>
+        </div>
+      <!-- cart -->
+      <!-- summary -->
+      <div class="col-lg-3">
+        <div class="card shadow-0 border">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <p class="mb-2">Total price:</p>
+              <p class="mb-2">${{Carrito.total}}</p>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-between">
+              <p class="mb-2">Total price:</p>
+              <p class="mb-2 fw-bold">${{Carrito.total}}</p>
+            </div>
+            <div class="mt-3">
+              <a routerLink="carrito/pago/{{Carrito.idCarrito}}" class="btn btn-success w-100 shadow-0 mb-2"> Finalizar compra </a>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- summary -->
+    </div>
+  </div>
+</section>

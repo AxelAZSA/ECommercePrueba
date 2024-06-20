@@ -1,0 +1,44 @@
+<section>
+  <div class="row">
+    <div class="col-md-8 mb-4">
+      <div class="card mb-4">
+        <div class="card-body">
+          <form>
+            <h5 class="mb-4">Pago</h5>
+            <div class="row mb-4">
+              <div class="col">
+                <div class="form-outline">
+                  <input type="text" id="formNameOnCard" class="form-control" />
+                  <label class="form-label" for="formNameOnCard">Titular</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-outline">
+                  <input type="text" id="formCardNumber" class="form-control" />
+                  <label class="form-label" for="formCardNumber">Numero de tarjeta</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              <div class="col-3">
+                <div class="form-outline">
+                  <input type="text" id="formExpiration" class="form-control" />
+                  <label class="form-label" for="formExpiration">Expiracion</label>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="form-outline">
+                  <input type="text" id="formCVV" class="form-control" />
+                  <label class="form-label" for="formCVV">CVV</label>
+                </div>
+              </div>
+            </div>
+            <input type="button" value="Comfirmar compra" class="btn btn-primary btn-lg btn-block"  (click)="onSubmit(idCarrito)">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Credit card form -->
